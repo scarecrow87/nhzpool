@@ -114,7 +114,7 @@ def default(db):
             unpaid = math.trunc(float(r)/100000000)
         except TypeError:
             unpaid = 0
-    cpaid = db.execute("SELECT sum(amount) FROM accounts WHERE paid=0").fetchone()
+    cpaid = db.execute("SELECT sum(amount) FROM accounts WHERE paid=1").fetchone()
     for r in cpaid:
         try:
             paid = math.trunc(float(r)/100000000)
