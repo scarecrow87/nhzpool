@@ -114,13 +114,19 @@ def default(db):
             unpaid = math.trunc(float(r)/100000000)
         except TypeError:
             unpaid = 0
+    cpaid = db.execute("SELECT sum(amount) FROM accounts WHERE paid=0").fetchone()
+    for r in cpaid:
+        try:
+            paid = math.trunc(float(r)/100000000)
+        except TypeError:
+            paid = 0
     getaccounts = json.loads(urllib2.urlopen(config.get("pool", "nhzhost")+"/nhz?requestType=getAccount&account="+config.get("pool", "poolaccount")).read())
     try:
         leasebal = getaccounts['effectiveBalanceNHZ']
     except KeyError:
         leasebal = 0
         
-    output = template('default', pa=poolaccount, fee=poolfee, rows=result, blocks=block, nhzb=leasebal, payoutlimit=payoutlimit, unpaid=unpaid)
+    output = template('default', pa=poolaccount, fee=poolfee, rows=result, blocks=block, nhzb=leasebal, payoutlimit=payoutlimit, unpaid=unpaid, paid=paid)
     return output
 
 @route('/static/:path#.+#', name='static')

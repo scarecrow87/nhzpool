@@ -38,7 +38,8 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <h3>Pool Account: <small>{{pa}}</small></h3>
    	<h4>Leased Amount: <small>{{nhzb}} HZ</small>&nbsp;Pool Fee is: <small>{{fee}}% </small></h4>
-	<h4>&nbsp;Pool Pay Out Limit is: <small>{{payoutlimit}} HZ</small>&nbspTotal Unpaid: <small>{{unpaid}} HZ</small></h4>
+	<h4>&nbsp;Pool Pay Out Limit is: <small>{{payoutlimit}} HZ</small>&nbspTotal Unpaid: <small>{{unpaid}} HZ</small>&nbspTotal Unpaid: <small>{{paid}} HZ</small></h4>
+	<h4>(Mine Horizon with Scrypt and X11 at <a href="http://www.hzmultipool.com/">Horizon Multipool</a>)</h4>
   </div> 
 </div>
 <div class="row">
